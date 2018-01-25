@@ -1,37 +1,38 @@
-## Welcome to GitHub Pages
+# Introduction
+It is a Java Web app which can be used ***Hire a Cab*** Online... Or two.
 
-You can use the [editor on GitHub](https://github.com/m4mukulgarg/Hire-a-Cab/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+# Contribute
+Please feel free to fork the repository and add modifications. I love pull requests!
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+# Getting Started
+To use or edit the project you'll need the following:
+## For deploying
+* Just download the [WAR file](https://github.com/m4mukulgarg/Hire-a-Cab/blob/master/release/ekapp.war) and [database files](https://github.com/m4mukulgarg/Hire-a-Cab/blob/master/release/data.zip).
+* Download [Apache Tomcat 8.5](https://tomcat.apache.org/download-80.cgi) (Preferred) and deploy the WAR file using manager-gui. For help deploying, click here.
+* Download the MySQL 5.7 database server. Extract the data.zip directory into the MySQL 5.7 install directory. Default ceredentials in the data.zip files are username: ```root``` and password: ```abcd@1234```
+Alternatively, you can import these files [_users.txt_](https://github.com/m4mukulgarg/Hire-a-Cab/blob/master/release/users.txt), [_party.txt_](https://github.com/m4mukulgarg/Hire-a-Cab/blob/master/release/party.txt) and  add tables namely ```users``` and ```party``` respectively in a database with name ```ekapp```. [Read more...](#importing-a-text-file-as-a-table-in-mysql-57)
+* Run the ```mysqld``` database service.
+## For editing
+* Follow the steps mentioned in the above deployment section.
+* Open Eclipse IDE. It should have J2EE support. If you don't have it, you can get it [here](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen2).
+* Import the WAR file that you downloaded into eclipse as a new project. Here's [how](#importing-war-file-into-eclipse).
+--------------------------------------------------------------------------------------------------------------------------------
+# Appendix
+## Importing a text file as a table in MySQL 5.7
+from [MySQL 5.7 Reference Manual](https://dev.mysql.com/doc/refman/5.7/en/) > [LOAD DATA INFILE Syntax](https://dev.mysql.com/doc/refman/5.7/en/load-data.html)
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+LOAD DATA INFILE 'data.txt' INTO TABLE table2
+  FIELDS TERMINATED BY '\t';
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Importing WAR file into Eclipse 
+from [Eclipse documentation](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.wst.webtools.doc.user%2Ftopics%2Ftwimpwar.html)
 
-### Jekyll Themes
+To import the Web project resources in a WAR file into your workspace, complete the following steps:
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/m4mukulgarg/Hire-a-Cab/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+1. Select File > Import .
+2. In the Import dialog, select WAR file and then click Next.
+3. Locate the WAR file that you want to import using the Browse button.
+4. The wizard assumes you want to create a new Web project with the same name as the WAR file. If you accept this choice, the project will be created with the same servlet version as specified by the WAR file and in the same location. If you want to override these settings, you can click New and specify your new settings in the Dynamic Web Project wizard.
+5. Click Finish to populate the Web project.
